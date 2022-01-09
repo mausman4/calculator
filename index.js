@@ -15,6 +15,8 @@ function divide(a, b){
 }
 
 function operate(a, b, operation){
+    console.log("a = " + a);
+    console.log("b = " + b);
     switch (operation){
         case (0):
             return add(a,b);
@@ -28,35 +30,52 @@ function operate(a, b, operation){
             return;
     }
 }
+
+function reset(disp_msg){
+    a = disp_msg;
+    console.log("*a = " + a);
+    b = 0;
+    console.log("*b = " + b);
+    a_active = true;
+    display.textContent = disp_msg;
+    operation_active = false;
+}
+
 const display = document.querySelector('.display');
 let a = 0;
 let b = 0;
 //a_active is whether the current number manipulation is affecting lhs or rhs
 //true means changing lhs, false means changing rhs
 let a_active = true;
+let operation_active = false;
 let curr_operation = -1;
 
 const ac_btn = document.querySelector('.ac');
 ac_btn.addEventListener('click', () => {
-    a = 0;
-    b = 0;
-    a_active = true;
-    display.textContent = '0';
+    reset(0);
 });
 
 const p_m = document.querySelector('.p-m');
 p_m.addEventListener('click', () => {
-    if (a_active){
+    if (a_active || operation_active){
         a = a * (-1);
+        display.textContent = a;
+        operation_active = false;
     }
     else{
         b = b * (-1);
+        display.textContent = b;
     }
+    console.log("a = " + a);
+    console.log("b = " + b);
 });
 
 const nine = document.querySelector('.nine');
 nine.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(9);
+    }
+    else if (a_active){
         a = (a * 10) + 9;
         display.textContent = a;
     }
@@ -68,7 +87,10 @@ nine.addEventListener('click', () => {
 
 const eight = document.querySelector('.eight');
 eight.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(8);
+    }
+    else if (a_active){
         a = (a * 10) + 8;
         display.textContent = a;
     }
@@ -80,7 +102,10 @@ eight.addEventListener('click', () => {
 
 const seven = document.querySelector('.seven');
 seven.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(7);
+    }
+    else if (a_active){
         a = (a * 10) + 7;
         display.textContent = a;
     }
@@ -92,7 +117,10 @@ seven.addEventListener('click', () => {
 
 const six = document.querySelector('.six');
 six.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(6);
+    }
+    else if (a_active){
         a = (a * 10) + 6;
         display.textContent = a;
     }
@@ -104,7 +132,10 @@ six.addEventListener('click', () => {
 
 const five = document.querySelector('.five');
 five.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(5);
+    }
+    else if (a_active){
         a = (a * 10) + 5;
         display.textContent = a;
     }
@@ -116,7 +147,10 @@ five.addEventListener('click', () => {
 
 const four = document.querySelector('.four');
 four.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(4);
+    }
+    else if (a_active){
         a = (a * 10) + 4;
         display.textContent = a;
     }
@@ -128,7 +162,10 @@ four.addEventListener('click', () => {
 
 const three = document.querySelector('.three');
 three.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(3);
+    }
+    else if (a_active){
         a = (a * 10) + 3;
         display.textContent = a;
     }
@@ -140,7 +177,10 @@ three.addEventListener('click', () => {
 
 const two = document.querySelector('.two');
 two.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(2);
+    }
+    else if (a_active){
         a = (a * 10) + 2;
         display.textContent = a;
     }
@@ -152,7 +192,10 @@ two.addEventListener('click', () => {
 
 const one = document.querySelector('.one');
 one.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(1);
+    }
+    else if (a_active){
         a = (a * 10) + 1;
         display.textContent = a;
     }
@@ -164,7 +207,10 @@ one.addEventListener('click', () => {
 
 const zero = document.querySelector('.zero-key');
 zero.addEventListener('click', () => {
-    if (a_active){
+    if (operation_active){
+        reset(0);
+    }
+    else if (a_active){
         a = a * 10;
         display.textContent = a;
     }
@@ -180,10 +226,12 @@ equals.addEventListener('click', () => {
         let result = operate(a, b, curr_operation);
         display.textContent = result;
         curr_operation = -1; //reset current operation to null
-
         b = 0;
         a = result; //if we want to chain operations
         a_active = false;
+        operation_active = true;
+        console.log("a = " + a);
+        console.log("b = " + b);
     }
 });
 
@@ -191,6 +239,9 @@ const plus = document.querySelector('.addition');
 plus.addEventListener('click', () => {
     curr_operation = 0;
     a_active = false;
+    operation_active = false;
+    console.log("a = " + a);
+    console.log("b = " + b);
 });
 
 const sub = document.querySelector('.subtract');
