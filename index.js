@@ -324,7 +324,9 @@ two.addEventListener('click', () => {
         }
     }
     else{
+        console.log("HIT");
         if (!dec_active){
+            console.log("inner hit");
             b = (b * 10) + z;
             display.textContent = b;
         }
@@ -435,6 +437,7 @@ plus.addEventListener('click', () => {
         b = 0;
         a_active = false;
         display.textContent = a;
+        dec_active = false;
         console.log("a = " + a);
         console.log("b = " + b);
     }
@@ -470,6 +473,7 @@ sub.addEventListener('click', () => {
         b = 0;
         a_active = false;
         display.textContent = a;
+        dec_active = false;
         console.log("a = " + a);
         console.log("b = " + b);
     }
@@ -505,6 +509,7 @@ mult.addEventListener('click', () => {
         b = 0;
         a_active = false;
         display.textContent = a;
+        dec_active = false;
         console.log("a = " + a);
         console.log("b = " + b);
     }
@@ -540,6 +545,7 @@ divide_btn.addEventListener('click', () => {
         b = 0;
         a_active = false;
         display.textContent = a;
+        dec_active = false;
         console.log("a = " + a);
         console.log("b = " + b);
     }
