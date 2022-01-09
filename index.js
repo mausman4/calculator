@@ -50,6 +50,9 @@ function reset(disp_msg){
     operation_active = false;
     dec_active = false;
     dec_place = 1;
+    chain = false;
+    curr_operation = -1;
+    return;
 }
 
 const display = document.querySelector('.display');
@@ -62,6 +65,7 @@ let operation_active = false;
 let curr_operation = -1;
 let dec_active = false;
 let dec_place = 1;
+let chain = false;
 
 const ac_btn = document.querySelector('.ac');
 ac_btn.addEventListener('click', () => {
@@ -401,6 +405,7 @@ equals.addEventListener('click', () => {
         a = result; //if we want to chain operations
         a_active = false;
         operation_active = true;
+        chain = false;
         console.log("a = " + a);
         console.log("b = " + b);
     }
@@ -408,20 +413,39 @@ equals.addEventListener('click', () => {
 
 const plus = document.querySelector('.addition');
 plus.addEventListener('click', () => {
-    prep();
+    if (chain){
+        console.log("a = " + a);
+        console.log("b = " + b);
+        console.log("chain true");
+        a = a+b;
+        b = 0;
+        a_active = false;
+        display.textContent = a;
+        console.log("a = " + a);
+        console.log("b = " + b);
+    }
+    else{
+        console.log("chain false");
+        prep();
+    }
+    chain = true;
+    curr_operation = 0;
 });
 
 const sub = document.querySelector('.subtract');
 sub.addEventListener('click', () => {
     prep();
+    curr_operation = 1;
 });
 
 const mult = document.querySelector('.multiply');
 mult.addEventListener('click', () => {
     prep();
+    curr_operation = 2;
 });
 
 const divide_btn = document.querySelector('.divide');
 divide_btn.addEventListener('click', () => {
     prep();
+    curr_operation = 3;
 });
