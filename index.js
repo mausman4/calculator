@@ -66,6 +66,7 @@ let curr_operation = -1;
 let dec_active = false;
 let dec_place = 1;
 let chain = false;
+let chain_last;
 
 const ac_btn = document.querySelector('.ac');
 ac_btn.addEventListener('click', () => {
@@ -414,10 +415,23 @@ equals.addEventListener('click', () => {
 const plus = document.querySelector('.addition');
 plus.addEventListener('click', () => {
     if (chain){
-        console.log("a = " + a);
-        console.log("b = " + b);
+        console.log("+a = " + a);
+        console.log("+b = " + b);
         console.log("chain true");
-        a = a+b;
+        switch (chain_last){
+            case (0):
+                a = a+b;
+                break;
+            case (1):
+                a = a-b;
+                break;
+            case (2):
+                a = a*b;
+                break;
+            case (3):
+                a = a/b;
+                break;
+        }
         b = 0;
         a_active = false;
         display.textContent = a;
@@ -428,24 +442,112 @@ plus.addEventListener('click', () => {
         console.log("chain false");
         prep();
     }
+    chain_last = 0;
     chain = true;
     curr_operation = 0;
 });
 
 const sub = document.querySelector('.subtract');
 sub.addEventListener('click', () => {
-    prep();
+    if (chain){
+        console.log("-a = " + a);
+        console.log("-b = " + b);
+        console.log("chain true");
+        switch (chain_last){
+            case (0):
+                a = a+b;
+                break;
+            case (1):
+                a = a-b;
+                break;
+            case (2):
+                a = a*b;
+                break;
+            case (3):
+                a = a/b;
+                break;
+        }
+        b = 0;
+        a_active = false;
+        display.textContent = a;
+        console.log("a = " + a);
+        console.log("b = " + b);
+    }
+    else{
+        console.log("chain false");
+        prep();
+    }
+    chain_last = 1;
+    chain = true;
     curr_operation = 1;
 });
 
 const mult = document.querySelector('.multiply');
 mult.addEventListener('click', () => {
-    prep();
+    if (chain){
+        console.log("a = " + a);
+        console.log("b = " + b);
+        console.log("chain true");
+        switch (chain_last){
+            case (0):
+                a = a+b;
+                break;
+            case (1):
+                a = a-b;
+                break;
+            case (2):
+                a = a*b;
+                break;
+            case (3):
+                a = a/b;
+                break;
+        }
+        b = 0;
+        a_active = false;
+        display.textContent = a;
+        console.log("a = " + a);
+        console.log("b = " + b);
+    }
+    else{
+        console.log("chain false");
+        prep();
+    }
+    chain_last = 2;
+    chain = true;
     curr_operation = 2;
 });
 
 const divide_btn = document.querySelector('.divide');
 divide_btn.addEventListener('click', () => {
-    prep();
+    if (chain){
+        console.log("a = " + a);
+        console.log("b = " + b);
+        console.log("chain true");
+        switch (chain_last){
+            case (0):
+                a = a+b;
+                break;
+            case (1):
+                a = a-b;
+                break;
+            case (2):
+                a = a*b;
+                break;
+            case (3):
+                a = a/b;
+                break;
+        }
+        b = 0;
+        a_active = false;
+        display.textContent = a;
+        console.log("a = " + a);
+        console.log("b = " + b);
+    }
+    else{
+        console.log("chain false");
+        prep();
+    }
+    chain_last = 3;
+    chain = true;
     curr_operation = 3;
 });
