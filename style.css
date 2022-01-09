@@ -1,6 +1,9 @@
 body{
     background-color: #FFE4C4;
     font-family: 'Orbitron', sans-serif;
+    display:flex;
+    margin-top: 75px;
+    justify-content: center;
 }
 
 .display{
@@ -21,8 +24,8 @@ body{
     width: 360px;
     height: 500px;
     background-color: #87CEEB;
-    border-radius: 8px;
-    padding: 7px;
+    border-radius: 13px;
+    padding: 14px;
 }
 
 .pad{
