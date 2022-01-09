@@ -184,7 +184,6 @@ equals.addEventListener('click', () => {
         b = 0;
         a = result; //if we want to chain operations
         a_active = false;
-
     }
 });
 
@@ -194,3 +193,20 @@ plus.addEventListener('click', () => {
     a_active = false;
 });
 
+const sub = document.querySelector('.subtract');
+sub.addEventListener('click', () => {
+    curr_operation = 1;
+    a_active = false;
+});
+
+const mult = document.querySelector('.multiply');
+mult.addEventListener('click', () => {
+    curr_operation = 2;
+    a_active = false;
+});
+
+const divide_btn = document.querySelector('.divide');
+divide_btn.addEventListener('click', () => {
+    curr_operation = 3;
+    a_active = false;
+});
