@@ -14,6 +14,15 @@ function divide(a, b){
     return a/b;
 }
 
+function checkLength(a){
+    if (a.toString().length >= 10){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 function prep(){
     a_active = false;
     operation_active = false;
@@ -103,6 +112,9 @@ nine.addEventListener('click', () => {
         reset(9);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -114,6 +126,9 @@ nine.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -130,9 +145,12 @@ const eight = document.querySelector('.eight');
 eight.addEventListener('click', () => {
     let z = 8;
     if (operation_active){
-        reset(8);
+        reset(z);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -144,6 +162,9 @@ eight.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -163,6 +184,9 @@ seven.addEventListener('click', () => {
         reset(7);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -174,6 +198,9 @@ seven.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -193,6 +220,9 @@ six.addEventListener('click', () => {
         reset(6);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -204,6 +234,9 @@ six.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -223,6 +256,9 @@ five.addEventListener('click', () => {
         reset(5);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -234,6 +270,9 @@ five.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -253,6 +292,9 @@ four.addEventListener('click', () => {
         reset(4);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -264,6 +306,9 @@ four.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -283,6 +328,9 @@ three.addEventListener('click', () => {
         reset(3);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -294,6 +342,9 @@ three.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -313,6 +364,9 @@ two.addEventListener('click', () => {
         reset(2);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -324,6 +378,9 @@ two.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         console.log("HIT");
         if (!dec_active){
             console.log("inner hit");
@@ -345,6 +402,9 @@ one.addEventListener('click', () => {
         reset(1);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -356,6 +416,9 @@ one.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
@@ -375,6 +438,9 @@ zero.addEventListener('click', () => {
         reset(0);
     }
     else if (a_active){
+        if (!checkLength(a)){
+            return;
+        }
         if (!dec_active){
             a = (a * 10) + z;
             display.textContent = a;
@@ -386,6 +452,9 @@ zero.addEventListener('click', () => {
         }
     }
     else{
+        if (!checkLength(b)){
+            return;
+        }
         if (!dec_active){
             b = (b * 10) + z;
             display.textContent = b;
