@@ -5,29 +5,32 @@ body{
 
 .display{
     text-align: right;
+    height: 50px;
     border: 1px solid black;
     font-family: 'Orbitron', sans-serif;
+    font-size: 40px;
+    margin-bottom: 40px;
+    background-color: 	#D3D3D3;
+    border-radius: 8px;
+    padding-right: 14px;
 }
 
 .calculator-body{
     display: flex;
     flex-direction: column;
-    width: 180px;
-    height: 250px;
+    width: 360px;
+    height: 500px;
     background-color: #87CEEB;
+    border-radius: 8px;
     padding: 7px;
-}
-
-.display{
-    margin-bottom: 20px;
-    background-color: 	#D3D3D3;
 }
 
 .pad{
     display: flex;
-    height: 210px;
+    height: 420px;
     border-left: 1px solid black;
     border-top: 1px solid black;
+    border-radius: 8px;
 }
 
 .pad > div{
@@ -56,4 +59,14 @@ body{
     align-items: center;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
+    border-radius: 8px;
+    background-color: #D3D3D3;
+}
+
+.btn > div > .operator{
+    background-color: #FFb347;
+}
+
+.btn > div > .ac{
+    background-color: #FFb347;
 }
