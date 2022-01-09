@@ -14,6 +14,15 @@ function divide(a, b){
     return a/b;
 }
 
+function prep(){
+    a_active = false;
+    operation_active = false;
+    dec_active = false;
+    dec_place = 1;
+    console.log("a = " + a);
+    console.log("b = " + b);
+}
+
 function operate(a, b, operation){
     console.log("a = " + a);
     console.log("b = " + b);
@@ -399,44 +408,20 @@ equals.addEventListener('click', () => {
 
 const plus = document.querySelector('.addition');
 plus.addEventListener('click', () => {
-    curr_operation = 0;
-    a_active = false;
-    operation_active = false;
-    dec_active = false;
-    dec_place = 1;
-    console.log("a = " + a);
-    console.log("b = " + b);
+    prep();
 });
 
 const sub = document.querySelector('.subtract');
 sub.addEventListener('click', () => {
-    curr_operation = 1;
-    a_active = false;
-    operation_active = false;
-    dec_active = false;
-    dec_place = 1;
-    console.log("a = " + a);
-    console.log("b = " + b);
+    prep();
 });
 
 const mult = document.querySelector('.multiply');
 mult.addEventListener('click', () => {
-    curr_operation = 2;
-    a_active = false;
-    operation_active = false;
-    dec_active = false;
-    dec_place = 1;
-    console.log("a = " + a);
-    console.log("b = " + b);
+    prep();
 });
 
 const divide_btn = document.querySelector('.divide');
 divide_btn.addEventListener('click', () => {
-    curr_operation = 3;
-    a_active = false;
-    operation_active = false;
-    dec_active = false;
-    dec_place = 1;
-    console.log("a = " + a);
-    console.log("b = " + b);
+    prep();
 });
